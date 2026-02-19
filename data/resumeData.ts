@@ -56,8 +56,10 @@ const careerInputs: CareerInputItem[] = [
       {
         title: "혼용 중인 아임웹, v1 서비스를 하나로 통합",
         details: [
-          "아임웹, v1 서비스를 하나로 통합하여 유지보수 용이성 및 확장성 향상",
-          "v1 서비스는 기존 서비스 유지보수 및 확장성 향상",
+          "운영중인 페이지는 아임웹, 어드민에서 관리는 v1 내부 서비스를 이용하고 있었으나 v1에 기능이 완벽하지 않아서 아임웹 데이터와 연동하는 수동 api가 구현되어 있던 상태",
+          "데이터 연동 api도 수동이며, 모든 케이스를 처리하지 않았기 때문에 양쪽 다 한 쪽만 보고서는 신뢰할 수 없었음",
+          "회원가입 및 인증, 여행상품관리, 여행상품별 일정, 여행상품일정별 숙박, 여행상품일정별 예약 및 결제, 구독서비스, 포인트 및 쿠폰 관리, 내부직원 관리등의 기능을 어드민 페이지 포함하여 개발자 3인(백엔드 2, 프론트 1)이 3개월 안에 개발함",
+          "위에 언급한 기능이 운영에 필요한 최소한의 요구사항이었고, 기본적인 vpn 환경 설정 및 ecs 배포환경을 구축하고 기존 데이터를 마이그레이션 후 실제 서비스 운영중",
         ],
       }  
     ],
@@ -170,7 +172,7 @@ export const resumeData = {
       items: [
         "Node.js",
         "TypeScript",
-        "AWS - EKS, Lambda, SQS",
+        "AWS - EC2, S3, RDS, Lambda, CloudFront, SQS",
         "MySQL",
         "Express.js",
         "MongoDB",
@@ -183,6 +185,7 @@ export const resumeData = {
     {
       label: "사용해본 경험이 있는 기술",
       items: [
+        "AWS - ECS, EKS, ECR",
         "JAVA",
         "Kotlin",
         "Spring Boot",
