@@ -33,6 +33,15 @@ export type TroubleShootingItem = {
   bullets: string[];
 };
 
+export type EducationItem = {
+  dateRange: DateRange;
+  periodLabel: string;
+  school: string;
+  major?: string;
+  degree?: string;
+  details?: string[];
+};
+
 type CareerInputItem = {
   dateRange: DateRange;
   company: string;
@@ -44,6 +53,27 @@ type ExperienceInputItem = {
   dateRange: DateRange;
   org: string;
   subtitle?: string;
+  details: string[];
+};
+
+type EducationInputItem = {
+  dateRange: DateRange;
+  school: string;
+  major?: string;
+  degree?: string;
+  details?: string[];
+};
+
+export type EtcItem = {
+  title: string;
+  dateRange: DateRange;
+  periodLabel: string;
+  details: string[];
+};
+
+type EtcInputItem = {
+  title: string;
+  dateRange: DateRange;
   details: string[];
 };
 
@@ -153,6 +183,24 @@ const experienceInputs: ExperienceInputItem[] = [
   },
 ];
 
+const educationInputs: EducationInputItem[] = [
+  {
+    dateRange: { startDate: "2013-03", endDate: "2017-02" },
+    school: "연세대학교",
+    major: "신학과",
+  },
+];
+
+const etcInputs: EtcInputItem[] = [
+  {
+    title: "ROTC",
+    dateRange: { startDate: "2017-03", endDate: "2019-06" },
+    details: [
+      "육군 중위 복무",
+    ],
+  },
+];
+
 export const resumeData = {
   profile: {
     name: "박래성",
@@ -237,4 +285,12 @@ export const resumeData = {
       ],
     },
   ] as TroubleShootingItem[],
+  education: educationInputs.map((item) => ({
+    ...item,
+    periodLabel: formatPeriod(item.dateRange),
+  })) as EducationItem[],
+  etc: etcInputs.map((item) => ({
+    ...item,
+    periodLabel: formatPeriod(item.dateRange),
+  })) as EtcItem[],
 };

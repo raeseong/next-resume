@@ -105,6 +105,54 @@ export default function Home() {
           ))}
         </div>
       </ResumeSection>
+
+      {resumeData.education.length > 0 ? (
+        <ResumeSection title="EDUCATION">
+          <div>
+            {resumeData.education.map((item) => (
+              <article
+                className="timeline-item"
+                key={`${item.dateRange.startDate}-${item.school}`}
+              >
+                <div className="timeline-period">{item.periodLabel}</div>
+                <div className="timeline-body">
+                  <h3 className="timeline-title">{item.school}</h3>
+                  {item.degree || item.major ? (
+                    <p className="timeline-role">
+                      {[item.degree, item.major].filter(Boolean).join(" · ")}
+                    </p>
+                  ) : null}
+                  {item.details && item.details.length > 0 ? (
+                    <ul>
+                      {item.details.map((detail) => (
+                        <li key={detail}>{detail}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </div>
+        </ResumeSection>
+      ) : null}
+
+      <ResumeSection title="ETC">
+        <div>
+          {resumeData.etc.map((item) => (
+            <article className="timeline-item" key={item.title}>
+              <div className="timeline-period">{item.periodLabel}</div>
+              <div className="timeline-body">
+                <h3 className="timeline-title">{item.title}</h3>
+                <ul>
+                  {item.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </ResumeSection>
     </main>
   );
 }
